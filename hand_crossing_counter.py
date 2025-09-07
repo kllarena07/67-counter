@@ -150,9 +150,9 @@ class HandCrossingCounter:
         cv2.putText(image, counter_text, (20, 50), self.font, self.font_scale, 
                    (0, 255, 0), self.thickness)
         
-        # Draw "67s per second" (counts per minute)
+        # Draw "67s per minute" (counts per minute)
         counts_per_minute = self.get_counts_per_minute(current_time)
-        rate_text = f"67s per second: {counts_per_minute:.1f}"
+        rate_text = f"67s per minute: {counts_per_minute:.1f}"
         cv2.putText(image, rate_text, (20, 90), self.font, self.font_scale, 
                    (255, 255, 0), self.thickness)
         
@@ -205,7 +205,7 @@ class HandCrossingCounter:
                 f.write(f"Hand Position Counter Results\n")
                 f.write(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
                 f.write(f"Total Crossings: {self.crossing_count}\n")
-                f.write(f"67s per second: {counts_per_minute:.1f}\n")
+                f.write(f"67s per minute: {counts_per_minute:.1f}\n")
                 f.write(f"Session Duration: {elapsed_time:.1f} seconds\n")
             
             print(f"Results saved to {filename}")
